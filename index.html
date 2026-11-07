@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html><head><title>Seabex Smart Irrigation</title></head><body>
-<h1>Seabex - Smart Irrigation</h1>
-<label>Soil Moisture (%):</label><input id="soil" type="number">
-<label>Temperature (°C):</label><input id="temp" type="number">
-<label>Water Availability (%):</label><input id="water" type="number">
-<button onclick="let s=+soil.value,t=+temp.value,w=+water.value,r=Math.min(100,Math.max(0,Math.round((Math.max(0,60-s)/60*50+Math.max(0,t-25)*2+Math.max(0,50-w)*0.6))));result.innerHTML='Risk: '+r+'% - '+(r<35?'Low':r<65?'Medium':'High')">Analyze Risk</button>
-<h2 id="result">Risk result will appear here</h2>
+<html><body>
+<h2>Seabex - Smart Irrigation</h2>
+<input id="s" type="number" placeholder="Humidite du sol (%)">
+<input id="t" type="number" placeholder="Temperature (C)">
+<input id="w" type="number" placeholder="Disponibilite eau (%)">
+<button onclick="let a=Math.max(0,(60-s.value)/60*100),b=Math.max(0,(t.value-25)/15*100),c=100-w.value,r=Math.round((a+b+c)/3);res.innerHTML='Risk: '+r+'% - '+(r<35?'Faible':r<65?'Moyen':'Eleve')">Analyser le risque</button>
+<h3 id="res">Resultat du risque</h3>
 </body></html>
