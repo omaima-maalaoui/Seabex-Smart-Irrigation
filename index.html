@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html><head><title>Seabex Smart Irrigation</title></head><body>
+<h1>Seabex - Smart Irrigation</h1>
+<label>Soil Moisture (%):</label><input id="soil" type="number">
+<label>Temperature (°C):</label><input id="temp" type="number">
+<label>Water Availability (%):</label><input id="water" type="number">
+<button onclick="let s=+soil.value,t=+temp.value,w=+water.value,r=Math.min(100,Math.max(0,Math.round((Math.max(0,60-s)/60*50+Math.max(0,t-25)*2+Math.max(0,50-w)*0.6))));result.innerHTML='Risk: '+r+'% - '+(r<35?'Low':r<65?'Medium':'High')">Analyze Risk</button>
+<h2 id="result">Risk result will appear here</h2>
+</body></html>
