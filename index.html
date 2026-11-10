@@ -1,22 +1,22 @@
 <html>
 <body>
 <h3>🌱 Seabex Risk</h3>
-Moisture: <input id="m" value="15"><br>
-Temperature: <input id="t" value="38"><br>
-Rainfall: <input id="r" value="0"><br>
+Moisture: <input id="m" type="number" value="15"><br>
+Temperature: <input id="t" type="number" value="38"><br>
+Rainfall: <input id="r" type="number" value="0"><br>
 <button onclick="go()">Analyze</button>
 <p id="o"></p>
 <script>
 function go(){
-let m=+m1(),t=+t1(),r=+r1(),o=document.getElementById('o');
-if(!m1()||!t1()||!r1()||m<0||m>100||t< -10||t>60||r<0){o.innerHTML="Enter valid values";return;}
+let m=+document.getElementById('m').value;
+let t=+document.getElementById('t').value;
+let r=+document.getElementById('r').value;
+let o=document.getElementById('o');
+if(document.getElementById('m').value===""||document.getElementById('t').value===""||document.getElementById('r').value===""||m<0||m>100||t< -10||t>60||r<0){o.innerHTML="Enter valid values";return;}
 let s=Math.min(100,Math.round(Math.max(0,(25-m)*3)+Math.max(0,t-25)*2+Math.max(0,20-r)*1.5));
 o.innerHTML=(s>=60?"HIGH":s>=30?"MEDIUM":"LOW")+" RISK<br>"+s+"% Risk";
 o.style.background=s>=60?"#ffe0e0":s>=30?"#fff0d5":"#d9f5e5";
 }
-function m1(){return document.getElementById('m').value}
-function t1(){return document.getElementById('t').value}
-function r1(){return document.getElementById('r').value}
 </script>
 </body>
 </html>
